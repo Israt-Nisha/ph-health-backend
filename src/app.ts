@@ -13,6 +13,7 @@ import { auth } from "./app/lib/auth";
 import { envVars } from "./app/config/env";
 import { AppointmentService } from "./app/module/appointment/appointment.service";
 import { PaymentController } from "./app/module/payment/payment.controller";
+import { requestLogger } from "./app/middleware/requestLogger";
 
 
 const app: Application = express();
@@ -20,6 +21,8 @@ app.set("query parser", (str : string) => qs.parse(str));
 
 app.set("view engine", "ejs");
 app.set("views",path.resolve(process.cwd(), `src/app/templates`) );
+
+app.use(requestLogger)
 
 app.post("/webhook", express.raw({ type: "application/json" }),PaymentController.handleStripeWebhookEvent)
 
