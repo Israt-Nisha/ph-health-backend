@@ -3,3 +3,5 @@
 {"timestamp":"2026-05-04T10:27:42.938Z","method":"GET","endpoint":"/","statusCode":201,"responseTimeMs":1.48,"ip":"::1","userAgent":"PostmanRuntime/7.53.0"}
 {"timestamp":"2026-05-07T12:20:18.129Z","method":"POST","endpoint":"/api/v1/auth/login","statusCode":200,"responseTimeMs":4687.48,"ip":"::1","userAgent":"PostmanRuntime/7.53.0"}
 {"timestamp":"2026-05-07T12:21:13.233Z","method":"GET","endpoint":"/api/v1/doctor-schedules","statusCode":200,"responseTimeMs":4149.36,"ip":"::1","userAgent":"PostmanRuntime/7.53.0"}
+{"timestamp":"2026-05-10T15:00:17.910Z","method":"GET","endpoint":"/api/v1/rag","statusCode":404,"responseTimeMs":14.85,"ip":"::1","userAgent":"PostmanRuntime/7.54.0"}
+{"timestamp":"2026-05-10T15:00:50.329Z","method":"GET","endpoint":"/api/v1/rag/stats","statusCode":200,"responseTimeMs":86.92,"ip":"::1","userAgent":"PostmanRuntime/7.54.0"}
