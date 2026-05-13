@@ -113,30 +113,30 @@ export class RAGService {
   // }
 
 
-  async getStats() {
-    try {
-      const totalDocuments = await prisma.$queryRaw(Prisma.sql`
-        SELECT COUNT(*) as count FROM "document_embeddings" WHERE "isDeleted" = false;
-        `);
+  // async getStats() {
+  //   try {
+  //     const totalDocuments = await prisma.$queryRaw(Prisma.sql`
+  //       SELECT COUNT(*) as count FROM "document_embeddings" WHERE "isDeleted" = false;
+  //       `);
 
-      const sourceTypeCounts = await prisma.$queryRaw(Prisma.sql`
-        SELECT "sourceType", COUNT(*) as count FROM "document_embeddings" WHERE "isDeleted" = false GROUP BY "sourceType"
-        `);
+  //     const sourceTypeCounts = await prisma.$queryRaw(Prisma.sql`
+  //       SELECT "sourceType", COUNT(*) as count FROM "document_embeddings" WHERE "isDeleted" = false GROUP BY "sourceType"
+  //       `);
 
-      return {
-        totalActiveDocuments: Number((totalDocuments as any)[0]?.count ?? 0),
-        sourceTypeBreakdown: (sourceTypeCounts as any).reduce(
-          (acc: any, curr: any) => {
-            acc[curr.sourceType] = Number(curr.count);
-            return acc;
-          },
-          {},
-        ),
-        timestamp: new Date(),
-      };
-    } catch (error) {
-      console.log(error);
-      throw error;
-    }
-  }
+  //     return {
+  //       totalActiveDocuments: Number((totalDocuments as any)[0]?.count ?? 0),
+  //       sourceTypeBreakdown: (sourceTypeCounts as any).reduce(
+  //         (acc: any, curr: any) => {
+  //           acc[curr.sourceType] = Number(curr.count);
+  //           return acc;
+  //         },
+  //         {},
+  //       ),
+  //       timestamp: new Date(),
+  //     };
+  //   } catch (error) {
+  //     console.log(error);
+  //     throw error;
+  //   }
+  // }
 }
